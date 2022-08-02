@@ -1,16 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <interactive-calendar :model-value="data"/>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import {defineComponent} from 'vue';
+import InteractiveCalendar from "@/components/InteractiveCalendar.vue";
+import {generateTestData} from "@/data";
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    InteractiveCalendar,
+  },
+  setup() {
+
+    const data = generateTestData(1200, 120);
+
+    return {
+      data,
+    }
   }
 });
 </script>
